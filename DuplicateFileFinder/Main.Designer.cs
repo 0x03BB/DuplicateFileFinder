@@ -113,6 +113,7 @@
             duplicateList.Name = "duplicateList";
             duplicateList.Size = new Size(776, 292);
             duplicateList.TabIndex = 6;
+            duplicateList.ItemCheck += DuplicateList_ItemCheck;
             duplicateList.DoubleClick += DuplicateList_DoubleClick;
             // 
             // deleteSelected

@@ -92,7 +92,7 @@ public partial class Main : Form
                     {
                         duplicateList.Items.Add(fi);
                     }
-                    duplicateList.Items.Add("—");
+                    duplicateList.Items.Add("—", CheckState.Indeterminate);
                 }
             },
             error =>
@@ -147,6 +147,14 @@ public partial class Main : Form
         if (duplicateList.SelectedItem is FileInfoSlim fi)
         {
             Process.Start(new ProcessStartInfo(Path.Combine(Path.GetDirectoryName(selectedFolder.Text), fi.Path)) { UseShellExecute = true });
+        }
+    }
+
+    private void DuplicateList_ItemCheck(object sender, ItemCheckEventArgs e)
+    {
+        if (e.CurrentValue == CheckState.Indeterminate)
+        {
+            e.NewValue = CheckState.Indeterminate;
         }
     }
 }
